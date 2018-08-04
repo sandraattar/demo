@@ -1,0 +1,27 @@
+.container{
+  display: grid;
+  border: 5px solid black;
+  grid-gap: 20px;
+  grid-template-columns: 1fr 1fr;
+  grid-template-areas:
+  ". header"
+  "about ."
+  "acs acs"
+  "inputs inputs"
+  "lists lists"
+}
+.page-header{
+  grid-area: header;
+}
+.about{
+  grid-area: about;
+}
+.add-change-sort{
+  grid-area: acs;
+}
+.inputs{
+  grid-area: inputs;
+}
+.lists{
+  grid-area: lists;
+}

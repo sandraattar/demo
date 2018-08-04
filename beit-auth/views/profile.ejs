@@ -1,0 +1,85 @@
+<!doctype html>
+<html>
+
+<head>
+  <title>Beit </title>
+  <!-- <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.0.2/css/bootstrap.min.css"> -->
+  <!-- <link rel="stylesheet" href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.min.css"> -->
+  <link rel="stylesheet" href="profile.css">
+  <link href="https://fonts.googleapis.com/css?family=Dosis" rel="stylesheet">
+</head>
+
+<body>
+  <div class="container">
+
+    <div class="page-header">
+      <a href="/logout" class="btn btn-default btn-sm">Logout</a>
+    </div>
+
+    <div class="about">
+      <h1>Beit <span lang="ar">بيت</span> </h1>
+    </div>
+
+    <div class="add-change-sort">
+      <h2>Add a posting</h2>
+      <button type="button" name="button">change view</button>
+      <button type="button" name="button">sort by</button>
+    </div>
+
+    <div class="inputs">
+      <% if (user.local.email) { %>
+        <form action="/api/posting" method="POST">
+          <label for="name">Refugee Name</label>
+          <input type="text" name="name" placeholder="enter your name">
+
+          <label for="location">Where Are You?</label>
+          <input type="text" name="location" placeholder="enter your current location">
+
+          <label for="status">I am Looking for:</label>
+          <select id="status" class="" name="status">
+            <option value="shelter" selected="selected">shelter</option>
+            <option value="food">food</option>
+            <option value="shower">shower</option>
+            <option value="hosted">hosted</option>
+          </select>
+
+          <button type="submit">Submit</button>
+        </form>
+        <% } %>
+    </div>
+
+    <div class="lists">
+      <ul class="postings">
+        <!-- looping through the collection array  -->
+        <% for(var i=0; i<postings.length; i++) {%>
+          <li class="posting">
+            <!-- parentNode of change status -->
+
+            <!-- looping through the different documents and pulling off the name property -->
+            <h3 class="posting-name">
+                    <%= postings[i].name %>
+                  </h3>
+            <p class="posting-location">
+              <%= postings[i].location %>
+            </p>
+            <p class="posting-status">
+              <%= postings[i].status %>
+            </p>
+            <!-- <p class="posting-id" hidden>
+              <%= postings[i]._id %>
+            </p> -->
+
+            <button type="button" name="button" class="change-status">Change Status</button>
+            <button type="button" name="button" class="delete-posting">Delete Posting</button>
+          </li>
+          <% } %>
+      </ul>
+    </div>
+
+  </div>
+
+  <script src="main.js"></script>
+
+</body>
+
+</html>

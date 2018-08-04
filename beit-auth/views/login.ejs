@@ -1,0 +1,62 @@
+<!doctype html>
+<html>
+
+<head>
+  <title>Beit</title>
+  <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.0.2/css/bootstrap.min.css">
+  <link rel="stylesheet" href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.min.css">
+  <link rel="stylesheet" href="style.css">
+
+</head>
+
+<body>
+
+
+  <% if (posting.length > 0) { %>
+    <div class="alert alert-danger">
+      <%= posting %>
+    </div>
+    <% } %>
+
+      <div class="log5in-page">
+        <div class="heading">
+          <h2>Welcome to ... </h2>
+          <h1>Beit <span lang="ar">بيت</span> </h1>
+        </div>
+        <div class="form">
+          <form class="register-form" action="/signup" method="post">
+            <input type="text" placeholder="email address" name="email" />
+            <input type="password" placeholder="password" name="password" />
+            <button>create</button>
+            <p class="message">Already registered? <a href="#">Sign In</a></p>
+          </form>
+
+          <form class="login-form" action="/login" method="post">
+            <input type="text" placeholder="email" name="email" />
+            <input type="password" placeholder="password" name="password" />
+            <button>login</button>
+            <p class="message">Not registered? <a href="#">Create an account</a></p>
+          </form>
+        </div>
+      </div>
+      <hr>
+      <!--
+    <p>Need an account? <a href="/signup">Signup</a></p>
+    <p>Or go <a href="/">home</a>.</p> -->
+
+
+      </div>
+      </div>
+      <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+      <script type="text/javascript">
+        $('.message a').click(function() {
+          $('form').animate({
+            height: "toggle",
+            opacity: "toggle"
+          }, "slow");
+        });
+      </script>
+
+</body>
+
+</html>
